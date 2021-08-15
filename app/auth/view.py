@@ -15,4 +15,4 @@ def register():
         db.session.commit()
         return redirect(url_for('auth.login'))
 
-    render_template('register.html', form = form)
+    render_template('auth/register.html', form = form)
