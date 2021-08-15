@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, url_for
 from flask_sqlalchemy import SQLAlchemy
 import sqlalchemy
 from config import config_options
@@ -14,16 +14,15 @@ def create_app(config_name):
 
     app.config.from_object(config_options[config_name])
 
-    #registering the main Blueprint
+    #registering Blueprints
+    
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
-
-    #Register authentication Blueprint
     from .auth import auth as auth_blueprint
     app.register_blueprint(auth_blueprint, url_prefix='/authenticate')
-    #initializing bootstrap
+
+    #initializing flask extension
     bootstrap.init_app(app)
-    # initializing SQLAlchemy
     db.init_app(app)
 
     return app

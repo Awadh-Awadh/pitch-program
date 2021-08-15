@@ -1,6 +1,6 @@
 from . import main
-from flask import render_template
+from flask import render_template, url_for
 
 @main.route('/')
-def inder():
+def index():
   return render_template('index.html')

@@ -1,0 +1,20 @@
+
+body{
+  background:  rgb(255,255,255) !important;
+  background: linear-gradient(159deg, rgba(255,255,255,1) 19%, rgba(236,240,243,1) 100%) !important;
+}
+h1{
+  font-family: 'DM Serif Text', serif;
+}
+p{
+  font-family: 'Poppins', sans-serif;
+}
+
+img{
+  width: 600px;
+  height: 600px;
+}
+.logo{
+  width: 70px;
+  height:60px
+}
