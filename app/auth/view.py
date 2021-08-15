@@ -1,5 +1,6 @@
+import re
 from flask import render_template, redirect, url_for
-from .form import Register
+from .form import Register,LoginForm
 from . import auth
 from ..models import User
 from .. import db
@@ -13,4 +14,10 @@ def register():
         db.session.commit()
         return redirect(url_for('auth.login'))
 
-    render_template('/register.html', form = form)
+    return render_template('auth/register.html', form = form)
+
+
+@auth.route('/login', methods=['GET','POST'])
+def login():
+    form = LoginForm()
+    return render_template('auth/login.html',form = form)

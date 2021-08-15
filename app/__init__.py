@@ -1,12 +1,15 @@
-from flask import Flask, url_for
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-import sqlalchemy
 from config import config_options
 from flask_bootstrap import Bootstrap
+from flask_login import LoginManager, login_manager
 
 
 db = SQLAlchemy()
 bootstrap = Bootstrap()
+login_manager = LoginManager()
+login_manager.session_protection = 'strong'
+login_manager.login_view = 'auth/login'
 
 def create_app(config_name):
 
@@ -24,5 +27,6 @@ def create_app(config_name):
     #initializing flask extension
     bootstrap.init_app(app)
     db.init_app(app)
+    login_manager.init_app(app)
 
     return app
