@@ -3,7 +3,7 @@ import os
 
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI = 'postgresql+pyscopg2://moringa:Access/@localhost/pitch'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Access@localhost/pitch'
 
 class DevConfig(Config):
     DEBUG = True
@@ -16,6 +16,6 @@ class ProdConfig(Config):
 
 
 config_options = {
-  'developmenent':DevConfig,
+  'development':DevConfig,
   'production':ProdConfig
 }
