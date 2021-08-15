@@ -4,15 +4,13 @@ from . import auth
 from ..models import User
 from .. import db
 
-@auth.route('/register')
+@auth.route('/register', methods = ['GET','POST'])
 def register():
     form = Register()
     if form.validate_on_submit:
-        user = User(username= form.username.data,
-                    email = form.email.data,
-                    password = form.password.data)
+        user = User(username= form.username.data,email = form.email.data,password=form.password.data)
         db.session.add(user)
         db.session.commit()
         return redirect(url_for('auth.login'))
 
-    render_template('auth/register.html', form = form)
+    render_template('/register.html', form = form)

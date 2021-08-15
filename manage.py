@@ -1,6 +1,7 @@
 from app import db, create_app
 from flask_migrate import Migrate
 from app.models import User
+from flask_migrate import Migrate
 
 
 app = create_app('development')
