@@ -18,3 +18,14 @@ img{
   width: 70px;
   height:60px
 }
+
+.navbar{
+  background-color: #ecf0f3 !important;
+  
+}
+.navbar a{
+  color: black !important;
+}
+.navbar ul li a{
+  margin-left: 150px !important;
+}

@@ -1,6 +1,7 @@
 from app import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import login_manager
+from flask_login import UserMixin
 
 
 
@@ -16,7 +17,7 @@ class Pitch(db.Model):
 
 
 
-class User(db.Model):
+class User(UserMixin,db.Model):
 
     __tablename__ = 'users'
     id = db.Column(db.Integer,primary_key = True)
