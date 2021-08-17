@@ -1,5 +1,8 @@
 {% extends 'layout.html' %}
 {% import 'bootstrap/wtf.html' as wtf%}
+{%block title%}
+  pitches
+{% endblock %}
 {%block content%}
 <div class="container">
   <div class="row">
@@ -9,13 +12,24 @@
           Pitch Yourself Below
         </h1>
         <div class="pitch-content">
-          {for pitch in }
+          {%for pitch in pitches%}
+            <h3>{{pitch.pitch}}</h3>
+            <em><p>{{pitch.name}}</p></em>
+          {% endfor %}
+          <div>
+            {% for post in posts %}
+            <!-- <h3>{{post.pitch}}</h3>
+            <em><p>{{post.name}}</p></em> -->
+          {% endfor %}
+          </div>
         </div>
       </div>
     </div>
     <div class="col-md-4">
       <div class="categories">
         <div class="cat-holder">
+
+          {{wtf.quick_form(pitch_form)}}
         </div>
 
 

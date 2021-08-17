@@ -1,14 +1,15 @@
 from . import main
-from flask import render_template, url_for
+from flask import render_template, url_for,redirect
 from .forms import PitchForm
 from ..models import Pitch
+from .. import db
 
 @main.route('/')
 def index():
   return render_template('index.html')
 
 
-@main.route('/pitches')
+@main.route('/pitches',methods=['GET', 'POST'])
 def pitches():
   upvote = 2
   downvote = 1
@@ -24,9 +25,15 @@ def pitches():
     }
 
   ]
-
   pitch_form = PitchForm()
-  add_pitch = Pitch(pitch=pitch_form.pitch.data, name = pitch_form.name.data,)
+  
+  if pitch_form.validate_on_submit():
+      pitch = Pitch(pitch =pitch_form.pitch.data, name = pitch_form.name.data)
+      db.session.add(pitch)
+      db.session.commit()
+      return redirect(url_for('.pitches'))
+  posts = Pitch.query.order_by(Pitch.timestamp.desc()).all()
 
 
-  return render_template('pitches.html', pitch = pitches)
+
+  return render_template('pitches.html', posts = posts, pitches = pitches, pitch_form = pitch_form)

@@ -2,17 +2,18 @@ from app import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import login_manager
 from flask_login import UserMixin
-
+from datetime import datetime
 
 
 class Pitch(db.Model):
 
     __tablename__ = 'pitches'
     id = db.Column(db.Integer, primary_key = True)
-    pitch = db.column(db.String(255))
+    pitch = db.column(db.Text)
     name = db.Column(db.String(20))
-    upvote = db.Column(db.Integer)
-    downvote = db.Column(db.Integer)
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    # upvote = db.Column(db.Integer)
+    # downvote = db.Column(db.Integer)
     def __repr__(self):
         return '<User %r>' % self.pitch
 
