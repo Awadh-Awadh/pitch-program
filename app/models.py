@@ -27,6 +27,9 @@ class User(UserMixin,db.Model):
     username = db.Column(db.String(50))
     email = db.Column(db.String(255))
     password_hash = db.Column(db.String(128))
+    name = db.Column(db.String(20))
+    bio = db.Column(db.Text())
+    member_since = db.Column(db.Datetime(), default=datetime.utcnow)
 
     @property
     def password(self):
