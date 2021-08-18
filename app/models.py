@@ -9,11 +9,12 @@ class Pitch(db.Model):
 
     __tablename__ = 'pitches'
     id = db.Column(db.Integer, primary_key = True)
-    pitch = db.column(db.Text)
+    pitch = db.Column(db.String(400))
     name = db.Column(db.String(20))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    # upvote = db.Column(db.Integer)
-    # downvote = db.Column(db.Integer)
+    upvote = db.Column(db.Integer)
+    downvote = db.Column(db.Integer)
+    
     def __repr__(self):
         return '<User %r>' % self.pitch
 

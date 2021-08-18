@@ -32,8 +32,8 @@ def pitches():
       db.session.add(pitch)
       db.session.commit()
       return redirect(url_for('.pitches'))
-  posts = Pitch.query.order_by(Pitch.timestamp.desc()).all()
+  posts = Pitch.query.all()
 
 
 
-  return render_template('pitches.html', posts = posts, pitches = pitches, pitch_form = pitch_form)
+  return render_template('pitches.html', posts =posts , pitches = pitches, pitch_form = pitch_form)

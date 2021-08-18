@@ -1,6 +1,4 @@
-import re
 from flask import render_template, redirect, url_for, flash
-from werkzeug.wrappers import request
 from .form import Register,LoginForm
 from . import auth
 from ..models import User
