@@ -1,6 +1,7 @@
+from flask_login import login_required, current_user
 from . import main
-from flask import render_template, url_for,redirect
-from .forms import PitchForm
+from flask import render_template, url_for,redirect, flash
+from .forms import PitchForm, EditProfile
 from ..models import Pitch, User
 from .. import db
 
@@ -38,4 +39,21 @@ def pitches():
 @main.route('/user/<username>')
 def profile(username):
     user = User.query.filter_by(username=username).first()
-    return render_template('edit.html', user=user)
+   
+    
+    return render_template('profile.html', user=user)
+
+@main.route('/edit-profile')
+@login_required
+def edit():
+    form = EditProfile()
+    if form.validate_on_submit:
+      current_user.name= form.name.data
+      current_user. about_me = form.about_me.data
+      db.session.add(current_user._get_current_object())
+      db.session.commit()
+      flash('Your profile has been updated.')
+      redirect('.user', username=current_user.username)
+    current_user.name= form.name.data
+    current_user.about_me = form.about_me.data
+    return render_template ('edit.html', form = form)
