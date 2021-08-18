@@ -29,7 +29,7 @@ class User(UserMixin,db.Model):
     password_hash = db.Column(db.String(128))
     name = db.Column(db.String(20))
     bio = db.Column(db.Text())
-    member_since = db.Column(db.Datetime(), default=datetime.utcnow)
+    member_since = db.Column(db.DateTime, default=datetime.utcnow)
 
     @property
     def password(self):

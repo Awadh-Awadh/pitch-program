@@ -36,6 +36,6 @@ def pitches():
 
   
 @main.route('/user/<username>')
-def edit_profile(username):
+def profile(username):
     user = User.query.filter_by(username=username).first()
     return render_template('edit.html', user=user)
