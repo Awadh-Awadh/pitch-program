@@ -1,13 +1,12 @@
 from . import main
 from flask import render_template, url_for,redirect
 from .forms import PitchForm
-from ..models import Pitch
+from ..models import Pitch, User
 from .. import db
 
 @main.route('/')
 def index():
   return render_template('index.html')
-
 
 @main.route('/pitches',methods=['GET', 'POST'])
 def pitches():
@@ -33,7 +32,10 @@ def pitches():
       db.session.commit()
       return redirect(url_for('.pitches'))
   posts = Pitch.query.all()
-
-
-
   return render_template('pitches.html', posts =posts , pitches = pitches, pitch_form = pitch_form)
+
+  
+@main.route('/user/<username>')
+def edit_profile(username):
+    user = User.query.filter_by(username=username).first()
+    return render_template('edit.html', user=user)
