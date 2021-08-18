@@ -4,6 +4,7 @@ from . import auth
 from ..models import User
 from .. import db
 from flask_login import login_user,logout_user, current_user, login_required
+from ..email import mail_message
 
 @auth.route('/register', methods = ['GET','POST'])
 def register():
@@ -13,6 +14,7 @@ def register():
         db.session.add(user)
         db.session.commit()
         flash('You can now login')
+        mail_message('Welcome to talky pitch Application','email/welcome', user.email, user=user)
         return redirect(url_for('auth.login'))
 
     return render_template('auth/register.html', form = form)
