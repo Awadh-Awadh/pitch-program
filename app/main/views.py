@@ -43,17 +43,17 @@ def profile(username):
     
     return render_template('profile.html', user=user)
 
-@main.route('/edit-profile')
+@main.route('/edit-profile', methods = ['GET','POST'])
 @login_required
 def edit():
     form = EditProfile()
-    # if form.validate_on_submit:
-    #   current_user.name= form.name.data
-    #   current_user. about_me = form.about_me.data
-    #   db.session.add(current_user._get_current_object())
-    #   db.session.commit()
-    #   flash('Your profile has been updated.')
-    #   return redirect(url_for('main.profile', username = current_user.username))
-    current_user.name= form.name.data
-    current_user.about_me = form.about_me.data
-    return render_template ('edit.html', form = form)
+    if form.validate_on_submit():
+      current_user.username = form.name.data
+      current_user.about_me = form.about_me.data
+      db.session.add(current_user._get_current_object())
+      db.session.commit()
+      flash('Your profile has been updated.')
+      return redirect(url_for('.profile', username=current_user.username))
+    form.name.data = current_user.username
+    form.about_m= current_user.bio
+    return render_template ('edit-profile.html', form = form)
