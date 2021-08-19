@@ -4,7 +4,7 @@ Dear {{ user.username }},
 
 Welocome to talky
 
-We have just seen you havw created an account with us. welcome to the family and enjoy making pitches
+We have just seen you have created an account with us. welcome to the family and enjoy making pitches
 
 
 Sincerely

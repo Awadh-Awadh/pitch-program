@@ -2,7 +2,7 @@ import os
 
 
 class Config:
-    SECRET_KEY = os.environ.get('SECRET_KEY') or 'hard nut to crack'
+    SECRET_KEY = os.environ.get('SECRET_KEY') or 'hard stuff to to crack'
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Access@localhost/pitch'
     MAIL_SERVER = 'smtp.google.com'
     MAIL_PORT = 587
