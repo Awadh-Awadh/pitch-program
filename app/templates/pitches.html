@@ -1,5 +1,8 @@
 {% extends 'layout.html' %}
 {% import 'bootstrap/wtf.html' as wtf%}
+{%block css%}
+<link rel="stylesheet" href="{{url_for('static', filename = 'css/pitch.css')}}">
+{% endblock %}
 {%block title%}
   pitches
 {% endblock %}
@@ -13,7 +16,7 @@
         </h1>
         <div class="pitch-content">
           {%for pitch in pitches%}
-            <h3>{{pitch.pitch}}</h3>
+            <h6>{{pitch.pitch}}</h6>
             <em><p>{{pitch.name}}</p></em>
             <p><i class="fas fa-thumbs-up"></i> {{upvote}}</p> 
             <p><i class="fas fa-thumbs-down"></i> {{upvote}}</p>
@@ -24,7 +27,7 @@
           {% endfor %}
           <div>
             {% for post in posts %}
-            <h3>{{post.pitch}}</h3>
+            <h6>{{post.pitch}}</h6>
             <em><p>{{post.name}}</p></em>
             <p><i class="fas fa-thumbs-up"></i></p>
             <span><i class="fas fa-thumbs-down"></i></span>

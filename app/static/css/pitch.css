@@ -1,0 +1,22 @@
+h1{
+  text-align: center;
+  padding: 1rem 0;
+  font-weight: 700 !important;
+  font-family: 'DM Serif Text', serif !important;
+  letter-spacing: 0.6rem !important;
+
+}
+i{
+color: #A2DBFA !important;
+font-size: 2rem;
+}
+h6{
+  font-size: 1.5rem !important;
+  font-weight: 900 !important;
+  font-family: 'Poppins', sans-serif !important;
+  line-height: 3rem !important;
+
+}
+body{
+  background-image: url('../images/pitch.jpg');
+}
