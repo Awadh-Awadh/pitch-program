@@ -1,19 +1,24 @@
 {% extends 'layout.html' %}
-
+{% block css %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/profile.css')}}">
+{%  endblock %}
 {% block content %}
 <div class="container">
-  <div class="row">
-    <div class="col-md-7">
-     <em>Username: </em> <span><h1>{{user.username}} <i class="fas fa-check-circle"></i></h1></span>
-      <em>Email:</em><h3>{{user.email}}</h3>
-      <em>Bio:</em><p>{{user.bio}}</p>
-      <a href="{{url_for('main.edit')}}"><button class = 'btn'>Edit Profile</button></a>
+  <div class="row ">
+    <div class="col-md-7 cont-prof">
+      <h1 class = "text-center">My pitches</h1>
+      <h4>{{user.pitches.pitch}}</h4>
       
     </div>
     <div class="col-md-5">
-      <h1 class = "text-center">My pitches</h1>
-      <h4>{{user.pitches.pitch}}</h4>
-           
+      <div class = 'image'>
+        <img src="{{url_for('static', filename = 'images/profile.jpg')}}" alt="">
+      </div>
+     <h1>{{user.username}} <i class="fas fa-check-circle"></i>
+    </h1>
+      <p>{{user.email}}</p>
+      <p>{{user.bio}}</p>
+      <a href="{{url_for('main.edit')}}"><button class = 'btn'>Edit Profile</button></a>          
     </div>
   </div>
 </div>

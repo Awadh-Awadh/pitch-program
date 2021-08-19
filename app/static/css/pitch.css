@@ -18,5 +18,8 @@ h6{
 
 }
 body{
-  background-image: url('../images/pitch.jpg');
+  background: #000000 !important;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #434343, #000000) !important;  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #434343, #000000) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white !important;
 }
