@@ -1,0 +1,30 @@
+.back{
+  background: #A2DBFA;
+  height: 80vh;
+  border-bottom-left-radius: 100% ;
+  border-bottom-right-radius: 100%;
+  animation: bubble 4s alternate;
+  position: relative
+}
+.form-container{
+  width: 60%;
+  height: auto;
+  margin: 4rem auto;
+  background-color: white;
+  padding: 7rem 5rem;
+  border-radius: 3rem;
+  opacity: 0.9;
+}
+h1{
+  text-align: center;
+  padding-bottom: 3rem;
+  font-weight: 900 !important;
+  font-size: 4rem !important;
+  font-family: 'Poppins', sans-serif !important;
+  letter-spacing: 0.6rem;
+}
+
+@keyframes bubble{
+0% {top:2rem}
+100%{top:-2rem}
+}

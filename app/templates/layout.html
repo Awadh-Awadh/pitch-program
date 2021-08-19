@@ -43,12 +43,12 @@
         <a class="navbar-brand" href="/">TALKY</a>
       </div>
       <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav pull-right">
           <li><a href="{{url_for('auth.logout')}}">Home</a></li>
           {% if current_user.is_authenticated %}
           <li><a href="{{url_for('auth.logout')}}">Logout</a></li> 
-          <li><a href="{{url_for('main.profile', username=current_user.username)}}">Profile</a></li>
-          <li><a href="">Account </a></li>
+          <li><a href="{{url_for('main.pitches')}}">Pitches </a></li>
+          <li><a href="{{url_for('main.profile', username=current_user.username)}}"> <i class="fas fa-user-alt"></i> Profile</a></li>
 
           {% else %}
           <li class=""><a href="{{url_for('auth.login')}}">Login</a></li>
