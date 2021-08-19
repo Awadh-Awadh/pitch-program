@@ -4,14 +4,16 @@
 <div class="container">
   <div class="row">
     <div class="col-md-7">
-      <h1>{{user.username}} <i class="fas fa-check-circle"></i></h1>
-      <h3>{{user.email}}</h3>
-      <p>{{user.bio}}</p>
+     <em>Username: </em> <span><h1>{{user.username}} <i class="fas fa-check-circle"></i></h1></span>
+      <em>Email</em><h3>{{user.email}}</h3>
+      <em>Bio</em><p>{{user.bio}}</p>
       <a href="{{url_for('main.edit')}}"><button class = 'btn'>Edit Profile</button></a>
       
     </div>
     <div class="col-md-5">
       <h1 class = "text-center">My pitches</h1>
+      {% for pitch in pitches %}
+      <h4>{{pitch.pitch}}</h4>
     </div>
   </div>
 </div>

@@ -14,6 +14,7 @@ class Pitch(db.Model):
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     upvote = db.Column(db.Integer)
     downvote = db.Column(db.Integer)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
     def __repr__(self):
         return '<User %r>' % self.pitch
@@ -30,6 +31,7 @@ class User(UserMixin,db.Model):
     name = db.Column(db.String(20))
     bio = db.Column(db.Text())
     member_since = db.Column(db.DateTime, default=datetime.utcnow)
+    pitches = db.relationship('Pitch', backref='author', lazy = 'dynamic')
 
     @property
     def password(self):

@@ -39,9 +39,10 @@ def pitches():
 @main.route('/user/<username>')
 def profile(username):
     user = User.query.filter_by(username=username).first()
+    pitches = user.query.filter_by().first()
    
     
-    return render_template('profile.html', user=user)
+    return render_template('profile.html', user=user,pitches=pitches)
 
 @main.route('/edit-profile', methods = ['GET','POST'])
 @login_required
@@ -55,5 +56,5 @@ def edit():
       flash('Your profile has been updated.')
       return redirect(url_for('.profile', username=current_user.username))
     form.name.data = current_user.username
-    form.about_m= current_user.bio
+    form.about_me= current_user.bio
     return render_template ('edit-profile.html', form = form)

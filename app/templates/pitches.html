@@ -15,11 +15,23 @@
           {%for pitch in pitches%}
             <h3>{{pitch.pitch}}</h3>
             <em><p>{{pitch.name}}</p></em>
+            <p><i class="fas fa-thumbs-up"></i></p>
+            <span><i class="fas fa-thumbs-down"></i></span>
+            <hr>
+            <a href="">Add comment</a>
+            <br>
+            <br>
           {% endfor %}
           <div>
             {% for post in posts %}
             <h3>{{post.pitch}}</h3>
             <em><p>{{post.name}}</p></em>
+            <p><i class="fas fa-thumbs-up"></i></p>
+            <span><i class="fas fa-thumbs-down"></i></span>
+            <hr>
+            <a href="">Add comment</a>
+            <br>
+            <br>
           {% endfor %}
           </div>
         </div>
