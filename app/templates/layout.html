@@ -44,7 +44,7 @@
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav pull-right">
-          <li><a href="{{url_for('auth.logout')}}">Home</a></li>
+          <li><a href="{{url_for('main.index')}}">Home</a></li>
           {% if current_user.is_authenticated %}
           <li><a href="{{url_for('auth.logout')}}"><i class="fas fa-sign-out-alt"></i> Logout</a></li> 
           <li><a href="{{url_for('main.pitches')}}"> <i class="fas fa-comments-dollar"></i>Pitches </a></li>

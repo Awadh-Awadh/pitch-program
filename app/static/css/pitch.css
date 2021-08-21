@@ -9,6 +9,7 @@ h1{
 i{
 color: #A2DBFA !important;
 font-size: 2rem;
+cursor: pointer;
 }
 h6{
   font-size: 1.5rem !important;
@@ -22,4 +23,7 @@ body{
   background: -webkit-linear-gradient(to right, #434343, #000000) !important;  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #434343, #000000) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: white !important;
+}
+.cat-holder{
+  position: fixed !important;
 }

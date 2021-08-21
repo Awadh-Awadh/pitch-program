@@ -39,8 +39,7 @@ def pitches():
 @main.route('/user/<username>')
 def profile(username):
     user = User.query.filter_by(username=username).first()
-    # posts = user.pitches.all()
-    posts = user.pitches.order_by(Pitch.timestamp.desc()).all()    
+    posts = user.pitches.all()    
     return render_template('profile.html', user=user, pitches=posts)
 
 @main.route('/edit-profile', methods = ['GET','POST'])
