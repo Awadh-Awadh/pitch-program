@@ -15,7 +15,7 @@ def register():
         db.session.commit()
         flash('You can now login')
 
-        #mail_message('Welcome to talky pitch Application','email/welcome', user.email, user=user)
+       # mail_message('Welcome to talky pitch Application','email/welcome', user.email, user=user)
 
         return redirect(url_for('auth.login'))
 

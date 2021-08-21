@@ -4,7 +4,7 @@ from app.models import User
 from flask_migrate import Migrate
 
 
-app = create_app('production')
+app = create_app('development')
 
 #create a migration instance
 migrate = Migrate(app,db)

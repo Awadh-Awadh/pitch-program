@@ -1,7 +1,13 @@
 {% extends 'layout.html' %}
+
+
 {% import 'bootstrap/wtf.html' as wtf%}
+
 {%block css%}
 <link rel="stylesheet" href="{{url_for('static', filename = 'css/pitch.css')}}">
+{% endblock %}
+{% block script %}
+<script src="{{url_for('static',filename = 'js/app.js')}}"></script>
 {% endblock %}
 {%block title%}
   pitches
@@ -18,8 +24,8 @@
           {%for pitch in pitches%}
             <h6>{{pitch.pitch}}</h6>
             <em><p>{{pitch.name}}</p></em>
-            <p><i class="fas fa-thumbs-up"></i> {{upvote}}</p> 
-            <p><i class="fas fa-thumbs-down"></i> {{upvote}}</p>
+            
+            <p><i class="icon fas fa-thumbs-down"></i> <span class = "custom"> 0 </span></p>
             <hr>
             <a href="">Add comment</a>
             <br>
@@ -29,8 +35,8 @@
             {% for post in posts %}
             <h6>{{post.pitch}}</h6>
             <em><p>{{post.name}}</p></em>
-            <p><i class="fas fa-thumbs-up"></i> {{upvote}}</p>
-            <span><i class="fas fa-thumbs-down"></i> {{upvote}}</span>
+            <a href="{{url_for('main.like', id = post.id)}}"><i class=" icon fas fa-thumbs-up"></i></a><span class = "custom"> {{post.likes.count()}} </span></p>
+            <a href="{{url_for('main.dislike', id =post.id )}}"><i class="fas fa-thumbs-down"></i></a> <span class = "custom"> {{post.dislikes.count()}}</span></p>
             <hr>
             <a href="">Add comment</a>
             <br>
@@ -55,3 +61,5 @@
 
 </div>
 {% endblock %}
+
+
