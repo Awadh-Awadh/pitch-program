@@ -29,21 +29,17 @@ $ git clone [Repo](https://github.com/Awadh-Awadh/News-update.git)
 
 $ cd News-updade
 
-Create a start.sh file
-- $ touch start.sh
+Export manage.py file
+- $ export FLASK_APP=manage.py
 
-On your start.sh file , add your API key from [News API](https://newsapi.org) and the command for executing manage.py (python2 manage.py server), which will start the server.
+Export dubug mode
+- $ export FLASK_DEBUG=1
 
-In your start.sh file, also export NEWS_API_KEY='<YOUR_API_KEY>' to your local machine
-
-Give the file execution permissions.
-- $ chmod a+x start.sh
-
-command to run your application
-- $ ./start.sh
+To run your application use command:
+- flask run
 
 ## Live Link
-[Live Link]()
+[Live Link](https://awadh-talky.herokuapp.com/)
 
 ## Known Bugs 
 
