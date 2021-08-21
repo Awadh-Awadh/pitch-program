@@ -12,18 +12,18 @@ def index():
 @main.route('/pitches',methods=['GET', 'POST'])
 def pitches():
 
-  pitches = [
-    {
-      "pitch": "I recently launched a website for people who like to work on classic cars.      The website has articles and videos with tutorials on how to work on cars",
-      "name" : "John Doe"
+  # pitches = [
+  #   {
+  #     "pitch": "I recently launched a website for people who like to work on classic cars.      The website has articles and videos with tutorials on how to work on cars",
+  #     "name" : "John Doe"
 
-    },
-    {
-      "pitch" : "I am in the planning stages of a mobile app company in New York. The company will create mobile apps which will help people write business plans on their mobile devices.",
-      "name" : "Mchimba kisima"
-    }
+  #   },
+  #   {
+  #     "pitch" : "I am in the planning stages of a mobile app company in New York. The company will create mobile apps which will help people write business plans on their mobile devices.",
+  #     "name" : "Mchimba kisima"
+  #   }
 
-  ]
+  # ]
   pitch_form = PitchForm()
   
   if pitch_form.validate_on_submit():
