@@ -21,16 +21,6 @@
           Pitch Yourself Below
         </h1>
         <div class="pitch-content">
-          {%for pitch in pitches%}
-            <h6>{{pitch.pitch}}</h6>
-            <em><p>{{pitch.name}}</p></em>
-            
-            <p><i class="icon fas fa-thumbs-down"></i> <span class = "custom"> 0 </span></p>
-            <hr>
-            <a href="">Add comment</a>
-            <br>
-            <br>
-          {% endfor %}
           <div>
             {% for post in posts %}
             <h6>{{post.pitch}}</h6>
